@@ -5,8 +5,8 @@ I have custom authentication repository.if you are interested, [go ahead](https:
 
 This app was built in with django channel !
 The feature in this app is very simple
-# Private _ chat system & 
-# Group _ chat system
+## Private Chat System & 
+## Group Chat System
 0. In private-chat an user can connect other user, and they can have there really time chat!
 1. In Group-chat an user can connect multipule user, and they can have there really time chat!
 
