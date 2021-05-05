@@ -19,7 +19,7 @@ The feature in this app is very simple
 <dl>
   <dt>How To install ?</dt>
   <dd>Create virtualenv  ▶️ <em> virtualenv env</em></dd>
-  <dd>Activate your virtualenv ▶️ <em>env/scripts/activate</em> ▶️ cd project</dd>
+  <dd>Activate your virtualenv ▶️ <em>env/scripts/activate</em></dd>
   <dd><em>pip install -r requirements.txt</em></dd>
   <dd><em>python manage.py runserver</em></dd>
 </dl
