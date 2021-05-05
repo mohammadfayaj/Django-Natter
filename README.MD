@@ -7,8 +7,8 @@ This app was built in with django channel !
 The feature in this app is very simple
 ## Private Chat System & 
 ## Group Chat System
-0. In private-chat an user can connect other user, and they can have there really time chat!
-1. In Group-chat an user can connect multipule user, and they can have there really time chat!
+0. In private-chat an user can connect other user, and they can have there real time chat!
+1. In Group-chat an user can connect multipule user, and they can have there real time chat!
 
 ![Optional Text](https://github.com/mohammadfayaj/Django-Natter/blob/main/Django_natter_img/Screenshot%20(50).png)
 ![Optional Text](https://github.com/mohammadfayaj/Django-Natter/blob/main/Django_natter_img/Screenshot%20(51).png)
