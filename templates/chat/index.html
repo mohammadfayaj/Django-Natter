@@ -1,0 +1,84 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% include 'base/navbar.html' %}
+
+<section class="container mt-5">
+    <p class="ui horizontal message violet font-weight-bold text-center text-uppercase">Welcome! to Group Chat Room</p>
+</section>
+
+<section class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <strong class='text-uppercase' style="font-size: 18px;">Your are connected those people</strong>
+
+            <hr>
+            <div class="ui cards">
+                {% for room in room_name %}
+                <div class="card">
+                    <div class="content">
+                        <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg">
+                        <div class="header">
+                            <img src="#" alt="">
+                            <a class="ui horizontal label purple">{{room.get_friend}}</a>
+                        </div>
+                        <div class="description">
+                            Elliot requested permission to view your contact details
+                        </div>
+                    </div>
+                    
+                    <div class="extra content">
+                        <div class="ui two buttons">
+                            <div class="ui basic green button">
+                                <a class="ui horizontal label purple"href='{% url "natter:room" room.room_name %}'>Chat Now</a>
+                             
+                            </div>
+                            <div class="ui basic red button">
+                                <a class="ui horizontal label purple"href='{% url "natter:remove-group" room.room_name %}'>Remove</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+
+        <div class="col">
+            <strong class='text-uppercase' style="font-size: 18px;">People You May Know</strong>
+            <hr>
+
+            {% for i in none_friends_list %}
+
+            <div class="ui cards">
+                <div class="card">
+                    <div class="content">
+                        <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg">
+                        <div class="header">
+                            <a class="ui horizontal label teal" href='#'>{{i}}</a>
+                            <hr>
+                        </div>
+                        <div class="description">
+                            Elliot requested permission to view your contact details
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <div class="ui two buttons">
+                            <div class="ui basic green button"> <a href="{% url 'natter:create-friend' i.id %}">Send Request</a></div>
+                            <div class="ui basic red button">Visit Profile</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+   
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+</body>
+
+</html>

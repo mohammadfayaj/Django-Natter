@@ -1,0 +1,83 @@
+{% extends 'base/base.html' %}
+
+{% block chat %}
+{{ room_name.room_name|json_script:"room_name" }}
+{{ request.user.username|json_script:"user_username" }}
+<div class="pageontent page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="card card-bordered">
+                    <div class="card-header">
+                        <h4 class="card-title ui horizontal label violet"><strong>Django | Natter</strong></h4> 
+                        <p class="btn btn-xs ui horizontal label teal" href="#" data-abc="true">Go Back</p>
+                    </div>
+                    <div class="ps-container ps-theme-default ps-active-y" id="chat-content" style="overflow-y: scroll !important; height:400px !important;">
+                        <div class="media media-chat"> <img class="avatar" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="...">
+                            <div class="media-body">
+                                {% for i in group_msg %}
+                                {% if i.user == request.user %}
+                                <p><span class='ui label horizontal green'>{{i.user}}</span> - <span class='ui label horizontal violet'>{{i.msg}}</span></p>
+                                <small class="meta"><time>{{i.timestamp}}</time></small>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="media media-chat media-chat-reverse"> <img class="avatar" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="...">
+                            <div class="media-body">
+                                {% for i in group_msg %}
+    
+                                <p>{{i.msg}}<br>
+                                <small class="meta"><time>{{i.timestamp}}</time></small>
+                                </p>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="media media-meta-day">Today</div>
+                        <p id="demo"></p>
+
+                        <div class="media media-chat">
+                            <div class="media-body">
+                                <form class="ui form chat-form" style="">
+                                <div  id="chat-log" style="min-height:100px; width: 20rem;" rows="1">
+                                    
+                                </div>
+                                
+                                </form>
+                                <p class="meta"><time datetime="2018">00:12</time></p>
+                            </div>
+                        </div>
+                        
+                        <div class="media media-chat media-chat-reverse">
+                            <div class="media-body">
+                            </div>
+                        </div>
+
+                        <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
+                            <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                        </div>
+                        <div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 2px;">
+                            <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 2px;"></div>
+                        </div>
+
+                    </div>
+                    <div class="publisher bt-1 border-light"> <img class="avatar avatar-xs" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="..."> 
+                        <input id="chat-message-input" class="publisher-input" type="text" placeholder="Write something">
+                        <span class="publisher-btn file-group"> 
+                        <i class="fa fa-paperclip file-browser"></i> 
+                        <input type="file"> </span> <a class="publisher-btn" href="#" data-abc="true">
+                        <i class="fa fa-smile"></i></a>
+                        <a class="publisher-btn text-info" id="chat-message-submit">
+                            <i class="fa fa-paper-plane"></i>
+                        </a> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,141 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% include 'base/navbar.html' %}
+
+<section class="container mt-5">
+    <p class="ui horizontal message violet font-weight-bold text-center text-uppercase">Welcome! to Private Chat Room</p>
+</section>
+
+<!-- style="padding-left: 15rem; padding-right: 15rem;" -->
+<section class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <strong class='text-uppercase' style="font-size: 18px;">Your are connected those people</strong>
+            <hr>
+
+            <div class="ui cards">
+                {% for room in room_name %}
+                    {% if room.is_friend %}
+                        <div class="card">
+                            <div class="content">
+                                <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg">
+                                <div class="header">
+                                    <img src="#" alt="">
+                                    <a class="ui horizontal label purple">{{room.get_private_friend}}</a>
+                                </div>
+                                <div class="description">
+                                    Elliot requested permission to view your contact details
+                                </div>
+                            </div>
+                            
+                            <div class="extra content">
+                                <div class="ui two buttons">
+                                    <div class="ui basic green button">
+                                        <a class="ui horizontal label green"href='{% url "private_chat:private-room" room.room_name %}'>Chat Now</a>
+                                    
+                                    </div>
+                                    <div class="ui basic red button">
+                                        <a class="ui horizontal label red"href='{% url "private_chat:un-friend" room.room_name %}'>Disconnect</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% empty %}
+                <strong class='text-uppercase text-center ui message black'>You don't love any one !</strong>
+                {% endfor %}
+                
+            </div>
+        </div>
+
+        <div class="col">
+            <strong class='text-uppercase' style="font-size: 18px;">People You May Know</strong>
+            <hr>
+        {% if none_friends_list %}
+            {% comment %} <p>Inside the if Tag</p> {% endcomment %}
+            {% for i in none_friends_list %}
+                <div class="ui cards">
+                    <div class="card">
+                        <div class="content">
+                            <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg">
+                            <div class="header">
+                                <a class="ui horizontal label teal" href='#'>{{i}}</a>
+                                <hr>
+                            </div>
+                            <div class="description">
+                                Elliot requested permission to view your contact details
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            <div class="ui two buttons">
+                                <div class="ui basic green button"> <a href="{% url 'private_chat:private-chat-create' i.id %}">Connect</a></div>
+                                <div class="ui basic red button">Visit Profile</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            {% empty %}
+                {% comment %} <p>Inside the Empty Tag</p> {% endcomment %}
+                {% for i in without_current_user %}
+                    <div class="ui cards">
+                        <div class="card">
+                            <div class="content">
+                                <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg">
+                                <div class="header">
+                                    <a class="ui horizontal label teal" href='#'>{{i}}</a>
+                                    <hr>
+                                </div>
+                                <div class="description">
+                                    Elliot requested permission to view your contact details
+                                </div>
+                            </div>
+                            <div class="extra content">
+                                <div class="ui two buttons">
+                                    <div class="ui basic green button"> <a href="{% url 'private_chat:private-chat-create' i.id %}">Connect</a></div>
+                                    <div class="ui basic red button">Visit Profile</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            {% endfor %}
+        
+            {% else %}
+                {% comment %} <p>Inside the else Tag</p> {% endcomment %}
+                {% if none_friends_list is None %}
+                    {% for i in without_current_user %}
+                        <div class="ui cards">
+                            <div class="card">
+                                <div class="content">
+                                    <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg">
+                                    <div class="header">
+                                        <a class="ui horizontal label teal" href='#'>{{i}}</a>
+                                        <hr>
+                                    </div>
+                                    <div class="description">
+                                        Elliot requested permission to view your contact details
+                                    </div>
+                                </div>
+                                <div class="extra content">
+                                    <div class="ui two buttons">
+                                        <div class="ui basic green button"> <a href="{% url 'private_chat:private-chat-create' i.id %}">Connect</a></div>
+                                        <div class="ui basic red button">Visit Profile</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+        {% endif %}
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+</body>
+
+</html>
