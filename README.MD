@@ -15,11 +15,10 @@ The feature in this app is very simple
 ![Optional Text](https://github.com/mohammadfayaj/Django-Natter/blob/main/Django_natter_img/Screenshot%20(53).png)
 ![Optional Text](https://github.com/mohammadfayaj/Django-Natter/blob/main/Django_natter_img/Screenshot%20(52).png)
 
-
-<dl>
-  <dt>How To install ?</dt>
-  <dd>Create virtualenv  ▶️ <em> virtualenv env</em></dd>
-  <dd>Activate your virtualenv ▶️ <em>env/scripts/activate</em></dd>
-  <dd><em>pip install -r requirements.txt</em></dd>
-  <dd><em>python manage.py runserver</em></dd>
-</dl
+#### How To install ?
+  ```
+  Create virtualenv  ▶️ virtualenv env
+  Activate your virtualenv ▶️ env/scripts/activate
+  pip install -r requirements.txt
+  python manage.py runserver
+  ```
